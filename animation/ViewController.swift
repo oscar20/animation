@@ -10,15 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var actionButon: UIButton!
+    
+    @IBAction func onTapBtn(_ sender: Any) {
+        print("Tapping")
+        UIView.animate(withDuration: 3, animations: {
+            self.actionButon.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            self.actionButon.backgroundColor = UIColor.red
+        }) { (success) in
+            guard success else{return }
+            UIView.animate(withDuration: 0.3, animations: {
+                self.actionButon.transform = CGAffineTransform.identity
+                self.actionButon.backgroundColor = UIColor.purple
+            })
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        actionButon.bounds = CGRect(x: actionButon.center.x, y: actionButon.center.y, width: actionButon.bounds.width / 2.0, height: actionButon.bounds.height)
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
 }
