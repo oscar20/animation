@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     @IBAction func onTapBtn(_ sender: Any) {
         print("Tapping")
         UIView.animate(withDuration: 3, animations: {
-            self.actionButon.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            self.actionButon.transform = CGAffineTransform(rotationAngle: CGFloat.pi) //la
+            self.actionButon.transform =
+                CGAffineTransform(scaleX: 2.0 , y: 1)
             self.actionButon.backgroundColor = UIColor.red
         }) { (success) in
             guard success else{return }
